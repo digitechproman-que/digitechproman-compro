@@ -163,7 +163,7 @@ export default function ContactPage() {
                 {
                   icon: <MapPin className="w-5 h-5 text-green-500" />,
                   label: "Lokasi",
-                  value: "Indonesia",
+                  value: "Tangerang, Indonesia",
                   href: "#",
                 },
               ].map((item) => (
@@ -187,8 +187,8 @@ export default function ContactPage() {
               <div className="mt-8 p-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl text-white">
                 <h3 className="font-bold text-lg mb-2">Konsultasi Gratis</h3>
                 <p className="text-green-100 text-sm leading-relaxed">
-                  Tidak perlu bayar untuk diskusi pertama. Ceritakan ide Anda dan
-                  kami bantu cari solusi terbaik yang sesuai budget.
+                  Tidak perlu bayar untuk diskusi pertama. Ceritakan ide ataupun
+                  permasalahan Anda dan kami bantu cari solusi terbaik yang sesuai budget.
                 </p>
               </div>
             </motion.div>

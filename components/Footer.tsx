@@ -30,6 +30,9 @@ export default function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/services", label: "Services" },
                 { href: "/contact", label: "Contact Us" },
+                { href: "/services#kasir", label: "Digitech Point Of Sales" },
+                { href: "/services#duitku", label: "Digitech Catatan Duitku" },
+                { href: "/services#absenku", label: "Digitech HR" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

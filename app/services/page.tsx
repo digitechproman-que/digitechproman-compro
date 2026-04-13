@@ -202,9 +202,9 @@ export default function ServicesPage() {
           className="max-w-2xl mx-auto px-4 mt-12 flex flex-wrap gap-3 justify-center"
         >
           {[
-            { href: "#kasir", label: "Solusi Kasir" },
-            { href: "#duitku", label: "Catatan Duitku" },
-            { href: "#absenku", label: "Absenku" },
+            { href: "#kasir", label: "Digitech Point Of Sales" },
+            { href: "#duitku", label: "Digitech Catatan Duitku" },
+            { href: "#absenku", label: "Digitech HR" },
           ].map((nav) => (
             <a
               key={nav.href}
@@ -217,43 +217,43 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
-      {/* Product 1 – Solusi Kasir */}
+      {/* Product 1 – Digitech Point Of Sales */}
       <ProductCard
         id="kasir"
         index={0}
         tag="POS & Retail"
         tagColor="bg-green-100 text-green-700"
-        title="Solusi Kasir"
+        title="Digitech Point Of Sales"
         subtitle="Sistem kasir modern untuk bisnis retail Anda"
-        desc="Solusi Kasir adalah sistem Point of Sale (POS) berbasis web yang dirancang untuk mempermudah operasional toko, warung, dan bisnis retail. Nikmati kemudahan transaksi, pengelolaan stok, dan laporan bisnis dalam satu platform terintegrasi."
+        desc="Digitech Point Of Sales adalah sistem Point of Sale (POS) berbasis web yang dirancang untuk mempermudah operasional toko, warung, dan bisnis retail. Nikmati kemudahan transaksi, pengelolaan stok, dan laporan bisnis dalam satu platform terintegrasi."
         features={kasirFeatures}
         gradient="from-green-500 to-emerald-400"
         reversed={false}
       />
 
-      {/* Product 2 – Catatan Duitku */}
+      {/* Product 2 – Digitech Catatan Duitku */}
       <ProductCard
         id="duitku"
         index={1}
         tag="Keuangan Pribadi"
         tagColor="bg-emerald-100 text-emerald-700"
-        title="Catatan Duitku"
+        title="Digitech Catatan Duitku"
         subtitle="Kelola keuanganmu dengan lebih cerdas"
-        desc="Catatan Duitku adalah aplikasi manajemen keuangan pribadi yang membantu Anda mencatat, menganalisis, dan merencanakan keuangan dengan mudah. Dengan tampilan yang sederhana namun powerful, keuangan Anda jadi lebih teratur."
+        desc="Digitech Catatan Duitku adalah aplikasi manajemen keuangan pribadi yang membantu Anda mencatat, menganalisis, dan merencanakan keuangan dengan mudah. Dengan tampilan yang sederhana namun powerful, keuangan Anda jadi lebih teratur."
         features={duitkuFeatures}
         gradient="from-emerald-500 to-teal-400"
         reversed={true}
       />
 
-      {/* Product 3 – Absenku */}
+      {/* Product 3 – Digitech HR */}
       <ProductCard
         id="absenku"
         index={2}
         tag="HR & Attendance"
         tagColor="bg-teal-100 text-teal-700"
-        title="Absenku"
-        subtitle="Sistem absensi karyawan modern & efisien"
-        desc="Absenku adalah solusi manajemen kehadiran karyawan berbasis cloud yang memudahkan HR dalam memantau absensi, izin, dan cuti. Cocok untuk bisnis skala kecil hingga menengah yang ingin kelola SDM lebih efisien."
+        title="Digitech HR"
+        subtitle="Sistem manajemen SDM modern & efisien"
+        desc="Digitech HR adalah solusi manajemen sumber daya manusia berbasis cloud yang memudahkan pengelolaan absensi, izin, cuti, dan data karyawan. Cocok untuk bisnis skala kecil hingga menengah yang ingin kelola SDM lebih efisien."
         features={absenFeatures}
         gradient="from-teal-500 to-cyan-400"
         reversed={false}

@@ -9,7 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 export default function Navbar() {
@@ -62,7 +61,7 @@ export default function Navbar() {
               href="/contact"
               className="ml-3 px-5 py-2 bg-green-500 text-white text-sm font-semibold rounded-full shadow-md shadow-green-200 hover:bg-green-600 hover:shadow-green-300 transition-all duration-200"
             >
-              Hubungi Kami
+              Contact Us
             </Link>
           </nav>
 

@@ -68,23 +68,23 @@ const reasons = [
 
 const products = [
   {
-    name: "Solusi Kasir",
+    name: "Digitech Point Of Sales",
     tag: "POS & Retail",
     desc: "Sistem kasir digital lengkap dengan manajemen stok, laporan penjualan real-time, dan multi-kasir.",
     href: "/services#kasir",
     color: "from-green-500 to-emerald-400",
   },
   {
-    name: "Catatan Duitku",
+    name: "Digitech Catatan Duitku",
     tag: "Keuangan Pribadi",
     desc: "Aplikasi pencatatan keuangan pribadi yang mudah, bantu kamu kelola pemasukan dan pengeluaran.",
     href: "/services#duitku",
     color: "from-emerald-500 to-teal-400",
   },
   {
-    name: "Absenku",
+    name: "Digitech HR",
     tag: "HR & Attendance",
-    desc: "Sistem absensi karyawan berbasis web/mobile dengan laporan otomatis dan integrasi payroll.",
+    desc: "Sistem manajemen SDM berbasis web/mobile dengan absensi, laporan kehadiran otomatis, dan kelola cuti.",
     href: "/services#absenku",
     color: "from-teal-500 to-cyan-400",
   },
