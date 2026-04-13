@@ -157,7 +157,7 @@ export default function ContactPage() {
                 {
                   icon: <Phone className="w-5 h-5 text-green-500" />,
                   label: "WhatsApp",
-                  value: "+62 xxx-xxxx-xxxx",
+                  value: "+62 896-8720-6153",
                   href: "#",
                 },
                 {
