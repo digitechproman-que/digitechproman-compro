@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
-import { Zap, Mail, ExternalLink } from "lucide-react";
+import { Zap, Mail, Eye } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
+import { useVisitorCount } from "@/lib/useVisitorCount";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const visitorCount = useVisitorCount();
+
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -17,19 +24,25 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-400">
-              Solusi digital terjangkau untuk bisnis Anda. Kami hadir untuk
-              mewujudkan ide menjadi produk nyata.
+              {t.footer_tagline}
             </p>
+
+            {/* Visitor counter */}
+            <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800 rounded-lg">
+              <Eye className="w-3.5 h-3.5 text-green-400" />
+              <span className="text-xs text-slate-400">{t.footer_visitors}:</span>
+              <span className="text-xs font-bold text-green-400">{visitorCount.toLocaleString()}</span>
+            </div>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Menu</h3>
+            <h3 className="text-white font-semibold mb-4">{t.footer_menu}</h3>
             <ul className="space-y-2 text-sm">
               {[
-                { href: "/", label: "Home" },
-                { href: "/services", label: "Services" },
-                { href: "/contact", label: "Contact Us" },
+                { href: "/", label: t.nav_home },
+                { href: "/services", label: t.nav_services },
+                { href: "/contact", label: t.nav_cta },
                 { href: "/services#kasir", label: "Digitech Point Of Sales" },
                 { href: "/services#duitku", label: "Digitech Catatan Duitku" },
                 { href: "/services#absenku", label: "Digitech HR" },
@@ -48,7 +61,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Kontak</h3>
+            <h3 className="text-white font-semibold mb-4">{t.footer_contact}</h3>
             <div className="flex items-center gap-2 text-sm mb-3">
               <Mail className="w-4 h-4 text-green-400 shrink-0" />
               <a
@@ -58,20 +71,11 @@ export default function Footer() {
                 digitechproman@gmail.com
               </a>
             </div>
-            <div className="flex gap-3 mt-4">
-              <a
-                href="#"
-                className="w-8 h-8 bg-slate-800 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors"
-                aria-label="Instagram"
-              >
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} DigiTechProject. All rights reserved.
+          © {new Date().getFullYear()} {t.footer_rights}
         </div>
       </div>
     </footer>

@@ -3,24 +3,29 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-];
+import { useLanguage } from "@/lib/LanguageContext";
+import type { Lang } from "@/lib/translations";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { href: "/", label: t.nav_home },
+    { href: "/services", label: t.nav_services },
+  ];
+
+  const toggleLang = () => setLang(lang === "id" ? "en" : "id");
 
   return (
     <header
@@ -57,22 +62,55 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Language switcher */}
+            <button
+              onClick={toggleLang}
+              className="ml-1 flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-green-50 hover:text-green-600 transition-all duration-200"
+              aria-label="Switch language"
+            >
+              <Globe className="w-4 h-4" />
+              <span className="flex gap-0.5">
+                {(["id", "en"] as Lang[]).map((l) => (
+                  <span
+                    key={l}
+                    className={`px-1.5 py-0.5 rounded text-xs font-bold transition-all ${
+                      lang === l
+                        ? "bg-green-500 text-white"
+                        : "text-slate-400"
+                    }`}
+                  >
+                    {l.toUpperCase()}
+                  </span>
+                ))}
+              </span>
+            </button>
+
             <Link
               href="/contact"
-              className="ml-3 px-5 py-2 bg-green-500 text-white text-sm font-semibold rounded-full shadow-md shadow-green-200 hover:bg-green-600 hover:shadow-green-300 transition-all duration-200"
+              className="ml-2 px-5 py-2 bg-green-500 text-white text-sm font-semibold rounded-full shadow-md shadow-green-200 hover:bg-green-600 hover:shadow-green-300 transition-all duration-200"
             >
-              Contact Us
+              {t.nav_cta}
             </Link>
           </nav>
 
-          {/* Mobile toggle */}
-          <button
-            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-green-50"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile: lang + toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:bg-green-50 transition-all"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              {lang.toUpperCase()}
+            </button>
+            <button
+              className="p-2 rounded-lg text-slate-600 hover:bg-green-50"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -100,6 +138,13 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 px-4 py-3 bg-green-500 text-white text-sm font-semibold rounded-lg text-center"
+              >
+                {t.nav_cta}
+              </Link>
             </nav>
           </motion.div>
         )}
